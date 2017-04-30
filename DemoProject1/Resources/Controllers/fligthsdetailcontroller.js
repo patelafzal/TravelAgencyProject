@@ -9,8 +9,8 @@
 
     function fligthsdetailcontroller($scope, $rootScope) {
         $scope.title = 'fligthsdetailcontroller';
-        debugger;
-        $scope.SearchedFlights = $rootScope.SearchFligthData;
+        //$scope.SearchedFlights = $rootScope.SearchFligthData;
+        $scope.SearchedFlights = JSON.parse(localStorage.getItem("Fligts"));
         activate();
 
         function activate() {

@@ -14,7 +14,7 @@
         $scope.fnSearchforFlights = function () {
             //alert("Triggerd");
             flightfactory.getFlights($scope.flight).then(function (data, status) {
-                $rootScope.SearchFligthData = data.data;
+                localStorage.setItem("Fligts", JSON.stringify(data.data));
                 window.location.href = "/FlightsDetail/Index";
             });
         }

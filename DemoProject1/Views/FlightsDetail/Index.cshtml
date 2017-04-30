@@ -304,15 +304,15 @@
                     </li>
                 </ul>
             </div>
-            <ul class="booking-list">
+            <ul class="booking-list" ng-cloak>
                 <li>
-                    <div class="booking-item-container" ng-repeat="flight in $rootScope.SearchFligthData.onwardflights">
+                    <div class="booking-item-container" ng-repeat="flight in SearchedFlights.data.onwardflights">
                         <div class="booking-item">
                             <div class="row">
                                 <div class="col-md-2">
                                     <div class="booking-item-airline-logo">
                                         <img src="img/lufthansa.jpg" alt="Image Alternative text" title="Image Title" />
-                                        <p>Lufthansa</p>
+                                        <p>{{flight.airline}}</p>
                                     </div>
                                 </div>
                                 <div class="col-md-5">
@@ -320,23 +320,23 @@
                                         <div class="booking-item-departure">
                                             <i class="fa fa-plane"></i>
                                             <h5>{{flight.ArrivalTime | date : format : "hh mm a"}}</h5>
-                                            <p class="booking-item-date">Sun, Mar 22</p>
+                                            <p class="booking-item-date">{{flight.ArrivalTime | date : format : "EEEE, MMM dd"}}</p>
                                             <p class="booking-item-destination">London, England, United Kingdom (LHR)</p>
                                         </div>
                                         <div class="booking-item-arrival">
                                             <i class="fa fa-plane fa-flip-vertical"></i>
-                                            <h5>12:25 PM</h5>
-                                            <p class="booking-item-date">Sat, Mar 23</p>
+                                            <h5>{{flight.DepartureTime | date : format : "hh mm a"}}</h5>
+                                            <p class="booking-item-date">{{flight.DepartureTime | date : format : "EEEE, MMM dd"}}</p>
                                             <p class="booking-item-destination">New York, NY, United States (JFK)</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-md-2">
-                                    <h5>22h 50m</h5>
+                                    <h5>{{flight.duration}}</h5>
                                     <p>1 stop</p>
                                 </div>
                                 <div class="col-md-3">
-                                    <span class="booking-item-price">$495</span><span>/person</span>
+                                    <span class="booking-item-price">{{flight.fare.totalfare}}</span><span>/person</span>
                                     <p class="booking-item-flight-class">Class: First</p><a class="btn btn-primary" href="#">Select</a>
                                 </div>
                             </div>
