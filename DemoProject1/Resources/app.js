@@ -1,18 +1,37 @@
 ﻿(function () {
     'use strict';
 
-    config.$inject = ['$routeProvider', '$locationProvider'];
+    angular.module('app', [
+        // Angular modules 
+        'ngRoute'
 
-    angular.module('TravellersApp', ['ngRoute']).config(config);
+        // Custom modules 
 
-    function config($routeProvider, $locationProvider) {
-        $routeProvider
-            .when('/', {
-                templateUrl: '/Views/Index',
-                controller: 'HomeController'
-            });
+        // 3rd Party Modules
 
-        $locationProvider.html5Mode(true);
-    }
-
+    ])
+    .run(function ($rootScope) {
+        $rootScope.goIbiboAppId = 'dbe3aa46';
+        $rootScope.goIbiboAppKey = 'd6d7531361c073cae07e94091b89dfcf';
+        $rootScope.APIUrl = "http://developer.goibibo.com/api/";
+        $rootScope.Responceformat = 'json';
+        $rootScope.ResponceRounter = "100";
+    });
+    //.directive('asDate', function () {
+    //    return {
+    //        require: 'ngModel',
+    //        link: function (scope, element, attrs, modelCtrl) {
+    //            modelCtrl.$formatters.push(function (input) {
+    //                var transformedInput;
+    //                if (input) transformedInput = new Date(input);
+    //                else transformedInput = new Date();
+    //                if (transformedInput !== input) {
+    //                    modelCtrl.$setViewValue(transformedInput);
+    //                    modelCtrl.$render();
+    //                }
+    //                return transformedInput;
+    //            });
+    //        }
+    //    };
+    //});
 })();
